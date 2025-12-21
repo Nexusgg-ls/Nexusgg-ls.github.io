@@ -87,7 +87,7 @@
                 <div class="code-header"><span>Terminal</span><button class="copy-btn" onclick="copyCode('c2')">Copiar</button></div>
                 <pre class="code-content" id="c2">sudo apt install waydroid</pre>
             </div>
-
+            
             <p class="instruction">No Fedora:</p>
             <div class="code-container">
                 <div class="code-header"><span>Terminal</span><button class="copy-btn" onclick="copyCode('c3')">Copiar</button></div>
@@ -115,6 +115,43 @@
                 <div class="code-header"><span>Terminal</span><button class="copy-btn" onclick="copyCode('c5')">Copiar</button></div>
                 <pre class="code-content" id="c5">waydroid session stop</pre>
             </div>
+            
+            
+            <div class="card">
+    <h3>📤 Enviar Arquivos (APK/OBB)</h3>
+    <p>Abra o terminal no seu Linux e use o comando abaixo para enviar arquivos direto para a pasta Download do Waydroid:</p>
+    
+    <div class="command-box">
+        <code id="cmd-adb">adb push ~/Downloads/arquivo.apk /sdcard/Download/</code>
+        <button class="copy-btn" onclick="copyToClipboard('cmd-adb')">Copiar</button>
+    </div>
+    
+    <p style="font-size: 0.8em; color: #888; margin-top: 10px;">
+        💡 Dica: Substitua "arquivo.apk" pelo nome real do arquivo que você baixou.
+    </p>
+</div>
+
+<script>
+function copyToClipboard(id) {
+    const text = document.getElementById(id).innerText;
+    navigator.clipboard.writeText(text).then(() => {
+        // Opcional: Mudar o texto do botão temporariamente para dar um feedback
+        const btn = event.target;
+        const originalText = btn.innerText;
+        btn.innerText = "Copiado!";
+        btn.style.background = "#28a745";
+        
+        setTimeout(() => {
+            btn.innerText = originalText;
+            btn.style.background = ""; // Volta para a cor original do seu CSS
+        }, 2000);
+    });
+}
+</script>
+            
+            
+        
+            
             <p style="text-align: center; font-size: 2.5em; margin: 20px 0;">🌺 🌃 🌠</p>
         </div>
 
