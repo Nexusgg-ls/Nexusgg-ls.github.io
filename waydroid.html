@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NexusGG - Tutorial Waydroid</title>
+    <style>
+        body { margin: 0; padding: 0; background: #1e293b; font-family: sans-serif; color: #f8fafc; line-height: 1.6; }
+        .header-bar { padding: 20px 25px; background: #0f172a; border-bottom: 1px solid #334155; display: flex; justify-content: space-between; }
+        .logo-text { font-weight: bold; font-size: 1.4em; margin: 0; color: #38bdf8; }
+        .main-container { max-width: 800px; margin: 0 auto; padding: 20px; }
+        
+        .card { background: #1e293b; border-radius: 16px; padding: 25px; margin-bottom: 25px; box-shadow: 0 10px 25px rgba(0,0,0,0.3); border: 1px solid #334155; border-left: 6px solid #38bdf8; }
+        .card-purple { border-left-color: #a855f7; }
+        
+        .step-title { font-size: 1.5em; font-weight: bold; margin-bottom: 15px; color: #f1f5f9; display: block; }
+        
+        .code-container {
+            position: relative;
+            background: #000;
+            border-radius: 12px;
+            margin: 15px 0;
+            border: 1px solid #334155;
+            overflow: hidden;
+        }
+
+        .code-header {
+            background: #1a1a1a;
+            padding: 8px 15px;
+            border-bottom: 1px solid #334155;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .code-header span { font-size: 12px; color: #94a3b8; font-family: sans-serif; text-transform: uppercase; letter-spacing: 1px; }
+
+        /* MUDANÇA PARA ROXO MODERNO */
+        .code-content {
+            color: #d8b4fe; /* Roxo suave e moderno */
+            padding: 20px;
+            font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 1.1em;
+            overflow-x: auto;
+            white-space: pre-wrap;
+            margin: 0;
+            text-shadow: 0 0 5px rgba(216, 180, 254, 0.3);
+        }
+
+        .copy-btn {
+            background: #a855f7;
+            color: white;
+            border: none;
+            padding: 5px 12px;
+            border-radius: 6px;
+            font-size: 11px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.2s;
+        }
+
+        .copy-btn:hover { background: #9333ea; }
+
+        .btn { display: inline-block; background-color: #a855f7; color: white; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: bold; margin-top: 10px; text-transform: uppercase; }
+        .instruction { color: #cbd5e1; margin: 10px 0; }
+        .highlight { color: #38bdf8; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <header class="header-bar">
+        <div><h1 class="logo-text">NexusGG</h1></div>
+    </header>
+
+    <main class="main-container">
+        
+        <div class="card">
+            <span class="step-title">passo 1° (Instalar o waydroid)</span>
+            
+            <p class="instruction">No Arch / BigLinux:</p>
+            <div class="code-container">
+                <div class="code-header"><span>Terminal</span><button class="copy-btn" onclick="copyCode('c1')">Copiar</button></div>
+                <pre class="code-content" id="c1">sudo pacman -S waydroid</pre>
+            </div>
+
+            <p class="instruction">No Ubuntu e Debian:</p>
+            <div class="code-container">
+                <div class="code-header"><span>Terminal</span><button class="copy-btn" onclick="copyCode('c2')">Copiar</button></div>
+                <pre class="code-content" id="c2">sudo apt install waydroid</pre>
+            </div>
+
+            <p class="instruction">No Fedora:</p>
+            <div class="code-container">
+                <div class="code-header"><span>Terminal</span><button class="copy-btn" onclick="copyCode('c3')">Copiar</button></div>
+                <pre class="code-content" id="c3">sudo dnf install waydroid</pre>
+            </div>
+            <p class="instruction">Abra o waydroid e baixe o arquivo de 1GB necessário.</p>
+        </div>
+
+        <div class="card card-purple">
+            <span class="step-title">passo 2° Google Play Certification</span>
+            <p class="instruction">Com o waydroid aberto, gere o seu ID:</p>
+            <div class="code-container">
+                <div class="code-header"><span>Terminal</span><button class="copy-btn" onclick="copyCode('c4')">Copiar</button></div>
+                <pre class="code-content" id="c4">sudo waydroid shell -- sh -c "sqlite3 /data/data/*/*/gservices.db 'select value from main where name = \"android_id\";'"</pre>
+            </div>
+            
+            <p class="instruction">Registre o ID copiado no site oficial:</p>
+            <a href="https://www.google.com/android/uncertified" target="_blank" class="btn">🔗 REGISTRAR NO GOOGLE</a>
+        </div>
+
+        <div class="card">
+            <span class="step-title">Finalizando</span>
+            <p class="instruction">Reinicie o serviço para aplicar:</p>
+            <div class="code-container">
+                <div class="code-header"><span>Terminal</span><button class="copy-btn" onclick="copyCode('c5')">Copiar</button></div>
+                <pre class="code-content" id="c5">waydroid session stop</pre>
+            </div>
+            <p style="text-align: center; font-size: 2.5em; margin: 20px 0;">🌺 🌃 🌠</p>
+        </div>
+
+        <a href="index.html" style="color: #38bdf8; text-decoration: none; font-weight: bold; font-size: 0.9em;">← VOLTAR PARA O INÍCIO</a>
+    </main>
+
+    <script>
+        function copyCode(id) {
+            const text = document.getElementById(id).innerText;
+            navigator.clipboard.writeText(text);
+            const btn = event.target;
+            btn.innerText = "Copiado!";
+            setTimeout(() => { btn.innerText = "Copiar"; }, 2000);
+        }
+    </script>
+</body>
+</html>
