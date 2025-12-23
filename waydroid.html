@@ -1,88 +1,73 @@
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NexusGG - Tutorial Waydroid</title>
+    <title>NexusGG™ - Tutorial Waydroid</title>
     <style>
-        body { margin: 0;
-            padding: 0;
-            /* Substitua pelo nome exato do seu arquivo de imagem */
+     body {
+            margin: 0; padding: 0;
             background: url('Fundo.jpeg') no-repeat center center fixed;
             background-size: cover;
             font-family: 'Segoe UI', sans-serif;
-            color: #f8fafc;
-            min-height: 100vh; }
-        .header-bar { padding: 20px 25px; background: #0f172a; border-bottom: 1px solid #334155; display: flex; justify-content: space-between; }
-        .logo-text { font-weight: bold; font-size: 1.4em; margin: 0; color: #38bdf8; }
-        .main-container { max-width: 800px; margin: 0 auto; padding: 20px; }
-        
-        .card { background: #1e293b; border-radius: 16px; padding: 25px; margin-bottom: 25px; box-shadow: 0 10px 25px rgba(0,0,0,0.3); border: 1px solid #334155; border-left: 6px solid #38bdf8; }
-        .card-purple { border-left-color: #a855f7; }
-        
-        .step-title { font-size: 1.5em; font-weight: bold; margin-bottom: 15px; color: #f1f5f9; display: block; }
-        
-        .code-container {
-            position: relative;
-            background: #000;
-            border-radius: 12px;
-            margin: 15px 0;
-            border: 1px solid #334155;
-            overflow: hidden;
+            color: #f8fafc; line-height: 1.6; min-height: 100vh;
         }
 
-        .code-header {
-            background: #1a1a1a;
-            padding: 8px 15px;
-            border-bottom: 1px solid #334155;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        /* Efeito de Vidro mais nítido */
+        .card {
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(15px);
+            border-radius: 16px;
+            padding: 25px;
+            margin-bottom: 25px;
+            border: 1px solid rgba(0, 242, 255, 0.2);
+            border-left: 6px solid #00f2ff;
+            box-shadow: 0 0 15px rgba(0, 242, 255, 0.1);
         }
 
-        .code-header span { font-size: 12px; color: #94a3b8; font-family: sans-serif; text-transform: uppercase; letter-spacing: 1px; }
+        .card-purple { border-left-color: #a855f7; border-color: rgba(168, 85, 247, 0.2); }
 
-        /* MUDANÇA PARA ROXO MODERNO */
+        /* Títulos com brilho */
+        .step-title {
+            font-size: 1.5em; font-weight: bold; margin-bottom: 15px;
+            color: #f1f5f9; text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+        }
+
+        /* FONTE MODERNA: Ciano Neon para os comandos */
         .code-content {
-            color: #d8b4fe; /* Roxo suave e moderno */
+            color: #00f2ff;
+            text-shadow: 0 0 12px rgba(0, 242, 255, 0.7);
             padding: 20px;
             font-family: 'Consolas', 'Monaco', monospace;
             font-size: 1.1em;
             overflow-x: auto;
             white-space: pre-wrap;
             margin: 0;
-            text-shadow: 0 0 5px rgba(216, 180, 254, 0.3);
+            font-weight: 600;
         }
 
-        .copy-btn {
-            background: #a855f7;
-            color: white;
-            border: none;
-            padding: 5px 12px;
-            border-radius: 6px;
-            font-size: 11px;
-            cursor: pointer;
-            font-weight: bold;
-            transition: background 0.2s;
+        .code-container { background: #000; border-radius: 12px; margin: 15px 0; border: 1px solid #334155; }
+        .code-header { background: #1a1a1a; padding: 8px 15px; border-bottom: 1px solid #334155; display: flex; justify-content: space-between; }
+
+        /* Botões com gradiente moderno */
+        .btn, .copy-btn {
+            background: linear-gradient(45deg, #00f2ff, #a855f7);
+            color: #000; border: none; padding: 10px 20px;
+            border-radius: 8px; font-weight: bold; cursor: pointer; transition: 0.3s;
         }
-
-        .copy-btn:hover { background: #9333ea; }
-
-        .btn { display: inline-block; background-color: #a855f7; color: white; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: bold; margin-top: 10px; text-transform: uppercase; }
-        .instruction { color: #cbd5e1; margin: 10px 0; }
-        .highlight { color: #38bdf8; font-weight: bold; }
+        .btn:hover { transform: scale(1.05); box-shadow: 0 0 15px rgba(0, 242, 255, 0.4); }
     </style>
 </head>
 <body>
     <header class="header-bar">
-        <div><h1 class="logo-text">NexusGG</h1></div>
+        <h1 class="logo-text">NexusGG</h1>
     </header>
 
     <main class="main-container">
-        
         <div class="card">
-            <span class="step-title">passo 1° (Instalar o waydroid)</span>
-            
+         <span class="step-title">passo 1° (Instalar o waydroid)</span>
+
             <p class="instruction">No Arch / BigLinux:</p>
             <div class="code-container">
                 <div class="code-header"><span>Terminal</span><button class="copy-btn" onclick="copyCode('c1')">Copiar</button></div>
@@ -94,75 +79,40 @@
                 <div class="code-header"><span>Terminal</span><button class="copy-btn" onclick="copyCode('c2')">Copiar</button></div>
                 <pre class="code-content" id="c2">sudo apt install waydroid</pre>
             </div>
-            
+
             <p class="instruction">No Fedora:</p>
             <div class="code-container">
                 <div class="code-header"><span>Terminal</span><button class="copy-btn" onclick="copyCode('c3')">Copiar</button></div>
                 <pre class="code-content" id="c3">sudo dnf install waydroid</pre>
+
             </div>
-            <p class="instruction">Abra o waydroid e baixe o arquivo de 1GB necessário.</p>
-        </div>
+      <p style="color: #00f2ff; font-weight: bold; margin-top: 10px; text-shadow: 0 0 8px rgba(0, 242, 255, 0.5);">
+                🏝️ baixe o 1gb necessário.
+
+            </p>
+
+       </div>
 
         <div class="card card-purple">
             <span class="step-title">passo 2° Google Play Certification</span>
-            <p class="instruction">Com o waydroid aberto, gere o seu ID:</p>
+            <p class="instruction">Abra o seu Waydroid e Gere o seu ID no terminal:</p>
             <div class="code-container">
                 <div class="code-header"><span>Terminal</span><button class="copy-btn" onclick="copyCode('c4')">Copiar</button></div>
                 <pre class="code-content" id="c4">sudo waydroid shell -- sh -c "sqlite3 /data/data/*/*/gservices.db 'select value from main where name = \"android_id\";'"</pre>
             </div>
-            
-            <p class="instruction">Registre o ID copiado no site oficial:</p>
             <a href="https://www.google.com/android/uncertified" target="_blank" class="btn">🔗 REGISTRAR NO GOOGLE</a>
         </div>
 
         <div class="card">
-            <span class="step-title">Finalizando</span>
-            <p class="instruction">Reinicie o serviço para aplicar:</p>
+            <span class="step-title">📤 Enviar Arquivos (APK/OBB)</span>
+            <p class="instruction">Use o comando abaixo para enviar arquivos para o Waydroid:</p>
             <div class="code-container">
                 <div class="code-header"><span>Terminal</span><button class="copy-btn" onclick="copyCode('c5')">Copiar</button></div>
-                <pre class="code-content" id="c5">waydroid session stop</pre>
+                <pre class="code-content" id="c5">adb push ~/Downloads/arquivo.apk /sdcard/Download/</pre>
             </div>
-            
-            
-            <div class="card">
-    <h3>📤 Enviar Arquivos (APK/OBB)</h3>
-    <p>Abra o terminal no seu Linux e use o comando abaixo para enviar arquivos direto para a pasta Download do Waydroid:</p>
-    
-    <div class="command-box">
-        <code id="cmd-adb">adb push ~/Downloads/arquivo.apk /sdcard/Download/</code>
-        <button class="copy-btn" onclick="copyToClipboard('cmd-adb')">Copiar</button>
-    </div>
-    
-    <p style="font-size: 0.8em; color: #888; margin-top: 10px;">
-        💡 Dica: Substitua "arquivo.apk" pelo nome real do arquivo que você baixou.
-    </p>
-</div>
-
-<script>
-function copyToClipboard(id) {
-    const text = document.getElementById(id).innerText;
-    navigator.clipboard.writeText(text).then(() => {
-        // Opcional: Mudar o texto do botão temporariamente para dar um feedback
-        const btn = event.target;
-        const originalText = btn.innerText;
-        btn.innerText = "Copiado!";
-        btn.style.background = "#28a745";
-        
-        setTimeout(() => {
-            btn.innerText = originalText;
-            btn.style.background = ""; // Volta para a cor original do seu CSS
-        }, 2000);
-    });
-}
-</script>
-            
-            
-        
-            
-            <p style="text-align: center; font-size: 2.5em; margin: 20px 0;">🌺 🌃 🌠</p>
         </div>
 
-        <a href="index.html" style="color: #38bdf8; text-decoration: none; font-weight: bold; font-size: 0.9em;">← VOLTAR PARA O INÍCIO</a>
+        <a href="index.html" class="back-link">← VOLTAR PARA O INÍCIO</a>
     </main>
 
     <script>
@@ -176,4 +126,3 @@ function copyToClipboard(id) {
     </script>
 </body>
 </html>
-
