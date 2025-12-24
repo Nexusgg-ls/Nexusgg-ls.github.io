@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>NexusGG - Downloads e Arquivos</title>
+    <style>
+      body {
+    margin: 0; padding: 40px;
+    /* Certifique-se que o nome do arquivo seja exatamente igual ao que você usou no index */
+    background: url('Fundo.jpeg') no-repeat center center fixed;
+    background-size: cover;
+    font-family: 'Segoe UI', sans-serif;
+    color: #f8fafc;
+    line-height: 1.6;
+}
+      .instrucoes-container {
+    background: rgba(15, 23, 42, 0.85); /* Fundo bem escuro para leitura */
+    backdrop-filter: blur(5px);
+    padding: 20px;
+    border-radius: 12px;
+    margin-top: 20px;
+    border: 1px solid rgba(0, 242, 255, 0.2);
+    color: #ffffff;
+}
+        .download-card {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 242, 255, 0.3);
+            border-radius: 16px;
+            padding: 25px;
+            margin: 20px 0;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .btn-download {
+            display: inline-block;
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-weight: bold;
+            text-decoration: none;
+            text-align: center;
+            transition: 0.3s;
+            color: #000;
+        }
+
+        /* Cores para SH e EXE */
+        .btn-sh { background: linear-gradient(45deg, #00f2ff, #a855f7); }
+        .btn-exe { background: linear-gradient(45deg, #ff9d00, #ff4444); color: white; }
+
+        .btn-download:hover { transform: scale(1.02); box-shadow: 0 0 15px rgba(0, 242, 255, 0.4); }
+
+        .desc { font-size: 0.9em; color: #cbd5e1; border-left: 3px solid #38bdf8; padding-left: 10px; }
+        .back-link { color: #94a3b8; text-decoration: none; }
+    </style>
+
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-link">← Voltar para a Home</a>
+        <h1>Downloads: Ferramentas Waydroid</h1>
+
+<div class="download-card">
+    <h3>🐧 Automação (Linux.sh)</h3>
+    <p class="desc">Ideal para usuários de <b>Linux</b>. Feche o seu emulador corretamente para não corromper o seu Waydroid.</p>
+
+    <a href="./Swaydroid.sh" download="Swaydroid.sh" class="btn-download btn-sh">BAIXAR Swaydroid.sh</a>
+</div>
+
+            <div class="instrucoes-container">
+    <strong>Como usar no BigLinux:</strong><br>
+    1. Após baixar, clique com o botão direito no arquivo <b>Swaydroid.sh</b>.<br>
+    2. Vá em Propriedades > Permissões e marque <b>"Permitir executar"</b>.<br>
+    3. Execute o arquivo para fechar o Waydroid com segurança.
+</div>
+
+
+
+
+<div class="download-card" style="border-left: 6px solid #a855f7; border-color: rgba(168, 85, 247, 0.4);">
+    <h3 style="color: #a855f7;">🖥️ Criar Atalho no Menu do Sistema</h3>
+    <p class="desc">Facilite seu dia a dia! Use o instalador abaixo para adicionar o botão "Fechar Waydroid" ao seu menu de aplicativos.</p>
+
+    <div style="text-align: center; padding: 15px; background: rgba(0,0,0,0.2); border-radius: 12px;">
+        <a href="./Atalho-icon.sh" download="Atalho-icon.sh" class="btn-download" style="background: linear-gradient(45deg, #a855f7, #6366f1); color: white; border: none; padding: 12px 20px; border-radius: 8px; font-weight: bold; text-decoration: none; display: inline-block;">
+            📥 BAIXAR INSTALADOR DE ATALHO
+        </a>
+    </div>
+
+    <div style="margin-top: 15px; padding: 15px; background: rgba(15, 23, 42, 0.85); border-radius: 12px; border: 1px solid rgba(168, 85, 247, 0.3);">
+        <p style="color: #ffffff; font-size: 0.9em; margin-bottom: 5px;"><strong>Como instalar o atalho:</strong></p>
+        <ol style="color: #cbd5e1; font-size: 0.85em; padding-left: 20px;">
+            <li>Baixe o <b>Configurar-Atalho.sh</b> acima.</li>
+            <li>Dê permissão de execução (Botão direito > Propriedades > Permissões) [cite: 2025-08-25].</li>
+            <li>Execute o arquivo. Uma mensagem aparecerá confirmando a criação.</li>
+        </ol>
+    </div>
+</div>
