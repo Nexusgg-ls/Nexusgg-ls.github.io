@@ -69,7 +69,7 @@
    <div class="card" style="background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(20px); border-left-color: #a855f7;">
             <h2 class="step-title" style="color:#FFFFFF ;">O que é o Waydroid?</h2>
             <p class="card-desc">
-                O <strong>Waydroid</strong> é uma solução de container que permite rodar um sistema Android completo dentro do seu Linux sem a lentidão de uma máquina virtual comum.
+                O <strong>Waydroid</strong> é uma solução de container que permite rodar um sistema Android completo dentro do seu Linux (como o seu BigLinux!) sem a lentidão de uma máquina virtual comum.
             </p>
             <ul style="color: #cbd5e1; padding-left: 20px;">
                 <li>🚀 <strong>Performance Nativa:</strong> Usa o Kernel do seu PC para rodar os apps.</li>
@@ -126,9 +126,32 @@
             <p class="instruction">Use o comando abaixo para enviar arquivos para o Waydroid:</p>
             <div class="code-container">
                 <div class="code-header"><span>Terminal</span><button class="copy-btn" onclick="copyCode('c5')">Copiar</button></div>
-                <pre class="code-content" id="c5">"adb push ~/Downloads/arquivo.apk|obb|png /sdcard/Download/"</pre>
+                <pre class="code-content" id="c5">adb push ~/Downloads/arquivo.apk /sdcard/Download/</pre>
             </div>
         </div>
+
+        <div class="card" style="border-left-color: #ff9d00; border-color: rgba(255, 157, 0, 0.3); margin-top: 30px;">
+    <h2 class="step-title" style="color: #ff9d00; text-shadow: 0 0 10px rgba(255, 157, 0, 0.5);">
+        🛠️ OU SE VOCÊ NÃO QUER USAR TERMINAL
+    </h2>
+    <p class="card-desc">
+        Prefere a facilidade de um clique? Baixe nosso script que automatiza tudo para você.
+    </p>
+
+    <div style="text-align: center; padding: 20px;">
+        <a href="sh" download="instalar-waydroid.sh" class="btn" style="background: linear-gradient(45deg, #ff9d00, #ff4444); color: white; text-decoration: none; padding: 15px 30px; display: inline-block; font-size: 1.1em;">
+            📥 DOWNLOAD DO ARQUIVO .SH
+        </a>
+    </div>
+
+    <p style="font-size: 0.9em; color: #cbd5e1; background: rgba(0,0,0,0.2); padding: 10px; border-radius: 8px;">
+        <strong>Como usar:</strong> Após baixar, abra a pasta, clique com o botão direito no arquivo <code>sh</code>, vá em <strong>Propriedades > Permissões</strong> e marque "Permitir executar". Depois é só abrir!
+    </p>
+</div>
+
+
+
+
 
         <a href="index.html" class="back-link">← VOLTAR PARA O INÍCIO</a>
     </main>
@@ -144,4 +167,3 @@
     </script>
 </body>
 </html>
-
