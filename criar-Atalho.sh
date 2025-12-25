@@ -1,21 +1,24 @@
 #!/bin/bash
-# Script para criar o atalho do ADB Transfer no menu
+# Script para criar o lançador oficial do Supremo RP no BigLinux [cite: 2025-08-25]
 
-# Define o caminho onde seu script enviar.sh está guardado
-# Altere '/Downloads/' se você salvou em outro lugar
-CAMINHO_ENVIAR="$HOME/Downloads/enviar.sh"
+NOME_APP="Supremo Enviar"
+EXEC_PATH="$HOME/Downloads/supremo-envio"
+ICON_PATH="$HOME/Downloads/supremo.jpg"
+DESKTOP_FILE="$HOME/.local/share/applications/supremo-envio.desktop"
 
+# Criando o arquivo .desktop [cite: 2025-07-28]
 echo "[Desktop Entry]
-Name=Enviar para o Waydroid
-Comment=Envia APKs e arquivos para /sdcard/Download
-Exec=bash $CAMINHO_ENVIAR
-Icon=document-send
+Name=$NOME_APP
+Comment=Enviar arquivos para o Waydroid
+Exec=$EXEC_PATH
+Icon=$ICON_PATH
 Terminal=false
 Type=Application
-Categories=Utility;System;" > ~/.local/share/applications/enviar-adb.desktop
+Categories=Utility;
+" > "$DESKTOP_FILE"
 
-# Garante que tanto o atalho quanto o script tenham permissão de execução
-chmod +x ~/.local/share/applications/enviar-adb.desktop
-chmod +x $CAMINHO_ENVIAR
+# Dando permissão de execução [cite: 2025-11-12]
+chmod +x "$DESKTOP_FILE"
+chmod +x "$EXEC_PATH"
 
-zenity --info --text="Atalho Criado! Agora você pode abrir o 'ADB: Enviar Arquivo' direto pelo menu do BigLinux."
+zenity --info --title="Envie arquivos pro Wd" --text="Atalho criado com sucesso no seu Menu de Aplicativos!" --timeout=3
