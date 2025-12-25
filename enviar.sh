@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # 1. Abre o seletor na sua pasta pessoal (Home)
-ARQUIVO=$(zenity --file-selection --filename="$HOME/" --title="Supremo RP - Selecionar Arquivo")
+ARQUIVO=$(zenity --file-selection --filename="$HOME/" --title="Envie arquivos pro seu Wd")
 
 # Se cancelar, sai
 [ -z "$ARQUIVO" ] && exit 0
