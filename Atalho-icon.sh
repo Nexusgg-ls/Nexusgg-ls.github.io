@@ -1,19 +1,15 @@
 #!/bin/bash
 
-# Tenta encontrar o arquivo Swaydroid.sh em qualquer lugar dentro da sua Home
-# Isso evita o erro de "pasta não encontrada"
-CAMINHO_SCRIPT=$(find $HOME -name "Swaydroid.sh" -print -quit)
+CAMINHO_SCRIPT=$(find $HOME -type f -iname "Swaydroid.sh" 2>/dev/null | head -n 1)
 
-# Verifica se o find encontrou o arquivo
 if [ -z "$CAMINHO_SCRIPT" ]; then
     zenity --error --text="Erro: Não consegui encontrar o arquivo 'Swaydroid.sh' em nenhuma pasta.\n\nCertifique-se de que o nome do arquivo está exatamente como 'Swaydroid.sh' (respeitando maiúsculas e minúsculas)."
     exit 1
 fi
 
-# Torna o script encontrado executável
+
 chmod +x "$CAMINHO_SCRIPT"
 
-# Cria o atalho apontando para o local encontrado
 echo "[Desktop Entry]
 Name=Fechar Waydroid
 Comment=Fecha a sessão do Android
