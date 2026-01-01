@@ -24,6 +24,9 @@
             border: 1px solid rgba(0, 242, 255, 0.4);
             border-left: 6px solid #00f2ff;
             box-shadow: 0 0 15px rgba(0, 242, 255, 0.1);
+            /* CONSERTO AQUI: Garante que o card cresça se o botão quebrar linha */
+            height: auto;
+            min-height: fit-content;
         }
 
         .card-purple { border-left-color: #a855f7; border-color: rgba(168, 85, 247, 0.2); }
@@ -55,16 +58,28 @@
             background: linear-gradient(45deg, #00f2ff, #a855f7);
             color: #000; border: none; padding: 10px 20px;
             border-radius: 8px; font-weight: bold; cursor: pointer; transition: 0.3s;
+            text-decoration: none; /* Garante que links não fiquem sublinhados */
+
+            /* CONSERTO AQUI: Faz o botão não cortar no celular */
+            display: inline-block;
+            max-width: 100%;
+            white-space: normal; /* Permite que o texto pule linha */
+            word-wrap: break-word;
+            box-sizing: border-box;
+            text-align: center;
         }
         .btn:hover { transform: scale(1.05); box-shadow: 0 0 15px rgba(0, 242, 255, 0.4); }
+
+        /* Ajuste para o link de voltar não sumir */
+        .back-link { color: #00f2ff; text-decoration: none; display: block; text-align: center; margin-top: 20px; font-weight: bold; }
     </style>
 </head>
 <body>
     <header class="header-bar">
-        <h1 class="logo-text">NexusGG</h1>
+        <h1 class="logo-text" style="text-align: center;">NexusGG</h1>
     </header>
 
-    <main class="main-container">
+    <main class="main-container" style="max-width: 800px; margin: 0 auto; padding: 20px;">
 
    <div class="card" style="background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(20px); border-left-color: #a855f7;">
             <h2 class="step-title" style="color:#FFFFFF ;">O que é o Waydroid?</h2>
@@ -80,8 +95,6 @@
                 * Requisito: Funciona apenas em sessões <strong>Wayland</strong>.
             </p>
         </div>
-
-
 
         <div class="card">
          <span class="step-title">passo 1° (Instalar o waydroid)</span>
@@ -102,13 +115,10 @@
             <div class="code-container">
                 <div class="code-header"><span>Terminal</span><button class="copy-btn" onclick="copyCode('c3')">Copiar</button></div>
                 <pre class="code-content" id="c3">sudo dnf install waydroid</pre>
-
             </div>
       <p style="color: #00f2ff; font-weight: bold; margin-top: 10px; text-shadow: 0 0 8px rgba(0, 242, 255, 0.5);">
                 🏝️ baixe o 1gb necessário.
-
             </p>
-
        </div>
 
         <div class="card card-purple">
@@ -118,7 +128,9 @@
                 <div class="code-header"><span>Terminal</span><button class="copy-btn" onclick="copyCode('c4')">Copiar</button></div>
                 <pre class="code-content" id="c4">sudo waydroid shell -- sh -c "sqlite3 /data/data/*/*/gservices.db 'select value from main where name = \"android_id\";'"</pre>
             </div>
-            <a href="https://www.google.com/android/uncertified" target="_blank" class="btn">🔗 REGISTRAR NO GOOGLE</a>
+            <div style="text-align: center; margin-top: 15px;">
+                <a href="https://www.google.com/android/uncertified" target="_blank" class="btn">🔗 REGISTRAR NO GOOGLE</a>
+            </div>
         </div>
 
         <div class="card">
@@ -130,24 +142,27 @@
             </div>
         </div>
 
-       <div class="card" style="border-left-color: #ff9d00; border-color: rgba(255, 157, 0, 0.3); margin-top: 30px;">
+      <div class="card" style="border-left-color: #ff9d00; border-color: rgba(255, 157, 0, 0.3); margin-top: 30px;">
     <h2 class="step-title" style="color: #ff9d00; text-shadow: 0 0 10px rgba(255, 157, 0, 0.5);">
         🛠️ OU SE VOCÊ NÃO QUER USAR TERMINAL
     </h2>
     <p class="card-desc">
-        Prefere a facilidade de um clique? Baixe nosso exe que automatiza tudo para você.
+        Prefere a facilidade de um clique? Baixe nosso script que automatiza tudo para você.
     </p>
 
-<div style="text-align: center; padding: 20px;">
-    <a href="./supremo-envio" download="supremo-envio" type="application/octet-stream" class="btn" style="background: linear-gradient(45deg, #00d2ff, #3a7bd5); color: white; text-decoration: none; padding: 15px 30px; display: inline-block; font-size: 1.1em; border-radius: 8px; font-weight: bold; box-shadow: 0 4px 15px rgba(0,210,255,0.3);">
-        🌠 Baixar: Supremo Run
-    </a>
-</div>
+    <div style="text-align: center; padding: 20px;">
+        <a href="enviar.sh" download="instalar-waydroid.sh" class="btn" style="background: linear-gradient(45deg, #ff9d00, #ff4444); color: white; padding: 15px 30px;">
+            📥 DOWNLOAD DO ARQUIVO .SH
+        </a>
+    </div>
 
-<p style="font-size: 0.9em; color: #cbd5e1; background: rgba(0,0,0,0.2); padding: 10px; border-radius: 8px;">
-    <strong>Como usar:</strong> Após baixar, clique com o botão direito, vá em <em>Propriedades > Permissões</em> e marque <strong>"Permitir execução"</strong>.
-</p>
-           
+    <p style="font-size: 0.9em; color: #cbd5e1; background: rgba(0,0,0,0.4); padding: 15px; border-radius: 8px; border: 1px dashed rgba(255,157,0,0.5);">
+        <strong>Como usar no BigLinux:</strong> <br>
+        1. Baixe o arquivo acima. <br>
+        2. Abra a pasta de Downloads, clique com o botão direito no arquivo e vá em <strong>Propriedades</strong>. <br>
+        3. Na aba <strong>Permissões</strong>, marque "Permitir executar". <br>
+        4. Dê dois cliques e escolha "Executar no Terminal".
+    </p>
 </div>
 
 <div class="card card-purple" style="margin-top: 20px; border-left-width: 8px;">
@@ -155,8 +170,8 @@
     <p class="instruction">Instale o atalho para enviar APKs e arquivos do seu PC direto para a pasta Download do Waydroid com um clique.</p>
 
     <div style="text-align: center; padding: 15px;">
-        <a href="./criar-Atalho.sh" download="criar-Atalho.sh" class="btn" style="background: linear-gradient(45deg, #a855f7, #00f2ff);">
-           🌠   Baixar Atalho de envio rapido
+        <a href="./instalar-envio.sh" download="Instalar-Atalho-Envio.sh" class="btn" style="background: linear-gradient(45deg, #a855f7, #00f2ff);">
+            🌠 Baixar Atalho de envio rapido
         </a>
     </div>
 
@@ -165,13 +180,10 @@
         <ol style="margin-top: 10px; color: #cbd5e1;">
             <li>Baixe o arquivo acima e dê permissão de execução.</li>
             <li>Ao executar, ele criará uma opção no seu menu chamada <b>"Enviar para Waydroid"</b>.</li>
-            <li>Isso automatiza o comando </code> para a pasta <code>/sdcard/Download/</code>.</li>
+            <li>Isso automatiza o comando <code>adb push</code> para a pasta <code>/sdcard/Download/</code>.</li>
         </ol>
     </div>
 </div>
-
-
-
 
         <a href="index.html" class="back-link">← VOLTAR PARA O INÍCIO</a>
     </main>
